@@ -7,6 +7,7 @@ const { celebrate, Joi, errors } = require('celebrate');
 const { login, createUser } = require('./controllers/user');
 const auth = require('./middlewares/auth');
 const NotFound = require('./errors/NotFound');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 // вызов нашего модуля
 const app = express();
@@ -22,6 +23,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+app.use(requestLogger);
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
@@ -50,6 +53,8 @@ app.use('*', auth, (req, res, next) => {
   next(new NotFound('Страницы не существует'));
   // res.status(403).send({ message: 'Страницы не существует' });
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 
