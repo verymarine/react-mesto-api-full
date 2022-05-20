@@ -8,11 +8,18 @@ const { login, createUser } = require('./controllers/user');
 const auth = require('./middlewares/auth');
 const NotFound = require('./errors/NotFound');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('cors');
 
 // вызов нашего модуля
 const app = express();
 // переменная окружения
 const { PORT = 3000 } = process.env;
+
+// const { PORT = 3000 } = process.env;
+app.use(cors({
+  origin: 'http://verymarine.domain.nomoredomains.xyz',
+  credentials: true,
+}));
 
 app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса

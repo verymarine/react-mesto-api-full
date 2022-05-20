@@ -119,11 +119,19 @@ class Api {
 }
 
 const api = new Api({
-  url: `https://nomoreparties.co/v1/cohort-35`,
+  url: `api.verymarine.domain.nomoreparties.sbs`,
   headers: {
-    authorization: `81162f22-64ce-4f78-ae05-3469a7d16e15`,
+    authorization: localStorage.jwt,
     "Content-Type": `application/json`,
   },
 });
+
+// const api = new Api({
+//   url: `https://nomoreparties.co/v1/cohort-35`,
+//   headers: {
+//     authorization: `81162f22-64ce-4f78-ae05-3469a7d16e15`,
+//     "Content-Type": `application/json`,
+//   },
+// });
 
 export default api;
