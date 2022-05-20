@@ -1,0 +1,9 @@
+.content__grid {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  max-width: 282px;
+  max-height: 361px;
+  position: relative;
+}

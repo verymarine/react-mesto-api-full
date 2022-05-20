@@ -1,0 +1,13 @@
+.content__liked {
+  margin: 22px 20px 3px 0;
+  padding: 0;
+  background-size: 22px 19px;
+  background-position: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 19px;
+  border: none;
+  cursor: pointer;
+  background-image: url('../../../images/black\ like.svg');
+}

@@ -1,0 +1,30 @@
+.header__auth {
+  margin: 16px 0 0 0;
+  padding: 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 336px;
+  color:#FFFFFF;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header__auth:hover {
+  opacity: .6;
+}
+
+@media screen and (max-width: 767px) {
+  .header__auth {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin: 14px auto 0 auto;
+    max-width: 282px;
+  }
+}
