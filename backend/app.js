@@ -1,14 +1,15 @@
+require('dotenv').c;onfig();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
+const cors = require('cors');
 
 const { login, createUser } = require('./controllers/user');
 const auth = require('./middlewares/auth');
 const NotFound = require('./errors/NotFound');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('cors');
 
 // вызов нашего модуля
 const app = express();
@@ -17,7 +18,7 @@ const { PORT = 3000 } = process.env;
 
 // const { PORT = 3000 } = process.env;
 app.use(cors({
-  origin: 'http://verymarine.domain.nomoredomains.xyz',
+  origin: 'https://verymarine.domain.nomoredomains.xyz',
   credentials: true,
 }));
 

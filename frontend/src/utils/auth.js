@@ -1,5 +1,6 @@
 //
-export const BASE_URL = 'https://auth.nomoreparties.co';
+// export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://verymarine.domain.nomoredomains.xyz';
 
 //
 export const register = (email, password) => {
