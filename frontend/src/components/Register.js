@@ -43,7 +43,7 @@ function Register(props) {
 
   return (
     <>
-      <Header textAuth="Войти" linkHeader="sign-in" />
+      <Header textAuth="Войти" linkHeader="signin" />
       <div className="register">
         <p className="register__title">Регистрация</p>
         <form onSubmit={handleSubmit} className="register__form">

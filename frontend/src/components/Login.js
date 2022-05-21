@@ -29,7 +29,7 @@ function Login({ onLogin, submitAuthorize, toolTipStatus, onToolTip }) {
 
   return (
     <>
-      <Header textAuth="Регистрация" linkHeader="sign-up" />
+      <Header textAuth="Регистрация" linkHeader="signup" />
       <div className="login">
         <p className="login__title">Вход</p>
         <form onSubmit={handleSubmit} className="login__form">

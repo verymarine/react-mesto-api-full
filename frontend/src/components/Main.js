@@ -12,7 +12,7 @@ function Main(props) {
     <>
       <Header
         textAuth="Выйти"
-        linkHeader="sign-in"
+        linkHeader="signin"
         exit={props.exit}
         status={props.status}
         userEmail={props.userEmail}

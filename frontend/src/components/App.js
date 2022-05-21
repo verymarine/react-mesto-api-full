@@ -195,7 +195,7 @@ function App() {
         if (res.data._id) {
           setToolTipStatus(true);
           setToolTip(true); // по дефолту значение тру
-          history.push("/sign-in"); // если проверка пароля прошла успешно то мы редеректим на страницу авторизации
+          history.push("/signin"); // если проверка пароля прошла успешно то мы редеректим на страницу авторизации           history.push("/sign-in")
         }
       })
       .catch((err) => {
@@ -271,14 +271,14 @@ function App() {
             userEmail={userEmail}
           />
 
-          <Route path="/sign-up">
+          <Route path="/signup">
             <Register
               onToolTip={handleToolTipShow}
               toolTipStatus={setToolTipStatus}
               submitRegister={handleRegister}
             />
           </Route>
-          <Route path="/sign-in">
+          <Route path="/signin">
             <Login
               onLogin={handleLogin}
               onToolTip={handleToolTipShow}
