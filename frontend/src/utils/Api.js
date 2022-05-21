@@ -86,6 +86,24 @@ class Api {
     }).then(response);
   }
 
+}
+
+const api = new Api({
+  url: `https://api.verymarine.domain.nomoreparties.sbs`,
+  headers: {
+    authorization: localStorage.jwt,
+    "Content-Type": `application/json`,
+  },
+});
+
+// const api = new Api({
+//   url: `https://nomoreparties.co/v1/cohort-35`,
+//   headers: {
+//     authorization: `81162f22-64ce-4f78-ae05-3469a7d16e15`,
+//     "Content-Type": `application/json`,
+//   },
+// });
+
   // postCards(data) {
   //   return fetch(`${this._url}/cards`, {
   //     method: 'POST',
@@ -116,22 +134,5 @@ class Api {
   // addMessage(data) {
   //   return fetch()
   // }
-}
-
-const api = new Api({
-  url: `https://api.verymarine.domain.nomoreparties.sbs`,
-  headers: {
-    authorization: localStorage.jwt,
-    "Content-Type": `application/json`,
-  },
-});
-
-// const api = new Api({
-//   url: `https://nomoreparties.co/v1/cohort-35`,
-//   headers: {
-//     authorization: `81162f22-64ce-4f78-ae05-3469a7d16e15`,
-//     "Content-Type": `application/json`,
-//   },
-// });
 
 export default api;

@@ -1,9 +1,9 @@
-// // Массив доменов, с которых разрешены кросс-доменные запросы
+// Массив доменов, с которых разрешены кросс-доменные запросы
 // const allowedCors = [
-//   'https://praktikum.tk',
-//   'http://praktikum.tk',
-//   'localhost:3000'
-// // ];
+//   'https://verymarine.domain.nomoredomains.xyz',
+//   'http://verymarine.domain.nomoredomains.xyz',
+//   'localhost:3000',
+// ];
 
 // app.use(function (req, res, next) {
 //   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin

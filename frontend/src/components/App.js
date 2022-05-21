@@ -287,7 +287,7 @@ function App() {
             />
           </Route>
           <Route exact path="/">
-            {loggedIn ? <Redirect to="/main" /> : <Redirect to="/sign-in" />}
+            {loggedIn ? <Redirect to="/main" /> : <Redirect to="/signin" />}
           </Route>
           <Route path="*">{<Redirect to="/" />}</Route>
         </Switch>
