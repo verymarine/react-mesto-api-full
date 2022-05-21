@@ -22,7 +22,7 @@ export const register = (email, password) => {
   .catch((err) => console.log(err))
 }
 
-//
+// /
 export const authorize = (email, password) => {
   return fetch(`${BASE_URL}/signin`,{
     method: 'POST',
