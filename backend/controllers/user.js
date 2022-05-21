@@ -66,14 +66,16 @@ module.exports.login = async (req, res, next) => {
         if (!matched) {
           next(new BadRequest('Неправильные почта или пароль'));
         }
-        const token = jwt.sign({ _id: user._id }, 'super-strong-secret', { expiresIn: '7d' });// напишите код здесь
+        // const token = jwt.sign({ _id: user._id }, 'super-strong-secret', { expiresIn: '7d' });
+
+        const token = jwt.sign({ _id: user._id });
 
         res.cookie('token', token, {
           httpOnly: true,
           sameSite: true,
         });
 
-        res.status(200).send({ token });
+        res.status(200).send({ jwt: token });// тут добавила jwt
       });
   } catch (err) {
     next(new Unauthorized('Пользователь не найден'));
