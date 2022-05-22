@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
 const cors = require('cors');
+const path = require('path');
 
 const { login, createUser } = require('./controllers/user');
 const auth = require('./middlewares/auth');
@@ -80,6 +81,8 @@ app.use((req, res, next) => {
 // };
 
 // app.use(cors());
+
+app.use(express.static(path.join(__dirname, 'public'))); // теперь клиент имеет доступ только к публичным файлам
 
 app.get('/crash-test', () => {
   setTimeout(() => {
