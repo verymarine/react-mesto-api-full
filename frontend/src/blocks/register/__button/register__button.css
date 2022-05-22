@@ -21,7 +21,7 @@ registern__button:hover {
 }
 
 @media screen and (max-width: 767px) {
-  registern__button {
+  .registern__button {
     font-size: 14px;
     line-height: 17px;
     width: 238px;
