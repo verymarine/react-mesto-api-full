@@ -209,7 +209,7 @@ function App() {
     auth
       .authorize(email, password)
       .then((res) => {
-        if (res.token) {
+        if (res) { // res.token
           setValues({
             //обновить стейт при успешной запросе поля формы очистятся и
             email: "",
