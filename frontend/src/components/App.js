@@ -180,6 +180,7 @@ function App() {
         .then((res) => {
           if (res) {
             setUserEmail(res.data.email);
+            console.log(res.data.email);
             setLoggedIn(true);
             history.push("/main");
           }
