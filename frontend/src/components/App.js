@@ -179,8 +179,7 @@ function App() {
         .checkToken(jwt)
         .then((res) => {
           if (res) {
-            // setUserEmail(res.data.email);
-            setUserEmail(res.data);
+            setUserEmail(res.data.email);
             setLoggedIn(true);
             history.push("/main");
           }
@@ -196,7 +195,7 @@ function App() {
         if (res.data._id) {
           setToolTipStatus(true);
           setToolTip(true); // по дефолту значение тру
-          history.push("/signin"); // если проверка пароля прошла успешно то мы редеректим на страницу авторизации           history.push("/sign-in")
+          history.push("/signin"); // если проверка пароля прошла успешно то мы редеректим на страницу авторизации
         }
       })
       .catch((err) => {
@@ -216,8 +215,6 @@ function App() {
             email: "",
             password: "",
           });
-          // if (res.cookies.get("jwt", res.token)) {}
-
           localStorage.setItem("jwt", res.token); // то мы должны локал сторедж записать джвт и рес джвт / запись токенов в локал сторедж
           handleLogin(); // вызывется колбэк который зpадан снаружи в случа успешной регистрации и после этого редирект
         } else {

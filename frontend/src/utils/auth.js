@@ -1,6 +1,4 @@
 //
-// export const BASE_URL = 'https://auth.nomoreparties.co';
-// export const BASE_URL = 'https://verymarine.domain.nomoredomains.xyz';
 export const BASE_URL = 'https://api.verymarine.domain.nomoreparties.sbs';
 
 //
@@ -22,7 +20,7 @@ export const register = (email, password) => {
   .catch((err) => console.log(err))
 }
 
-// /
+//
 export const authorize = (email, password) => {
   return fetch(`${BASE_URL}/signin`,{
     method: 'POST',

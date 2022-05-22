@@ -75,7 +75,7 @@ module.exports.login = async (req, res, next) => {
           sameSite: true,
         });
 
-        res.status(200).send({ jwt: token });// тут добавила jwt
+        res.status(200).send({ token });// тут добавила jwt
       });
   } catch (err) {
     next(new Unauthorized('Пользователь не найден'));
