@@ -50,7 +50,7 @@ app.use(req, res, next) => {
   const requestHeaders = req.headers['access-control-request-headers'];
 
   if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Origin', 'https://verymarine.domain.nomoredomains.xyz');
     res.header('Access-Control-Allow-Credentials', true);
   }
 
