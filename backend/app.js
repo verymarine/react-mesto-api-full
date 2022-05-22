@@ -11,15 +11,15 @@ const auth = require('./middlewares/auth');
 const NotFound = require('./errors/NotFound');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const allowedCors = [
-  'https://praktikum.tk',
-  'http://praktikum.tk',
-  'https://verymarine.domain.nomoredomains.xyz',
-  'http://verymarine.domain.nomoredomains.xyz',
-  'https://api.verymarine.domain.nomoreparties.sbs',
-  'http://api.verymarine.domain.nomoreparties.sbs',
-  'localhost:3000',
-];
+// const allowedCors = [
+//   'https://praktikum.tk',
+//   'http://praktikum.tk',
+//   'https://verymarine.domain.nomoredomains.xyz',
+//   'http://verymarine.domain.nomoredomains.xyz',
+//   'https://api.verymarine.domain.nomoreparties.sbs',
+//   'http://api.verymarine.domain.nomoreparties.sbs',
+//   'localhost:3000',
+// ];
 
 // вызов нашего модуля
 const app = express();
