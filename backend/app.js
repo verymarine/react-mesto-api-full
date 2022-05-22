@@ -11,16 +11,24 @@ const auth = require('./middlewares/auth');
 const NotFound = require('./errors/NotFound');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
+const allowedCors = [
+  'https://praktikum.tk',
+  'http://praktikum.tk',
+  'https://verymarine.domain.nomoredomains.xyz',
+  'http://verymarine.domain.nomoredomains.xyz',
+  'localhost:3000',
+];
+
 // вызов нашего модуля
 const app = express();
 // переменная окружения
 const { PORT = 3000 } = process.env;
 
 // const { PORT = 3000 } = process.env;
-app.use(cors({
-  origin: 'https://verymarine.domain.nomoredomains.xyz',
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: 'https://verymarine.domain.nomoredomains.xyz',
+//   credentials: true,
+// }));
 
 app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
@@ -33,6 +41,29 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 });
 
 app.use(requestLogger);
+
+app.use(req, res, next) => {
+  const { origin } = req.headers;
+
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+
+  const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
+
+  if (method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+  }
+
+  const requestHeaders = req.headers['access-control-request-headers'];
+  if (method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Headers', requestHeaders);
+    return res.end();
+  }
+
+  next();
+};
 
 app.get('/crash-test', () => {
   setTimeout(() => {
