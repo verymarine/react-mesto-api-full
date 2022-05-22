@@ -66,7 +66,6 @@ module.exports.login = async (req, res, next) => {
         if (!matched) {
           next(new BadRequest('Неправильные почта или пароль'));
         }
-        // const token = jwt.sign({ _id: user._id }, 'super-strong-secret', { expiresIn: '7d' });
 
         const token = jwt.sign({ _id: user._id });
 
