@@ -15,6 +15,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const allowedCors = [
   'https://verymarine.domain.nomoredomains.xyz',
   'http://verymarine.domain.nomoredomains.xyz',
+  // 'https://api.verymarine.domain.nomoreparties.sbs',
+  // 'http://api.verymarine.domain.nomoreparties.sbs',
   'http://localhost:3001',
   'http://localhost:3000',
 ];
