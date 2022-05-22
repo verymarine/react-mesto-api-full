@@ -27,10 +27,10 @@ const app = express();
 const { PORT = 3000 } = process.env;
 
 // const { PORT = 3000 } = process.env;
-// app.use(cors({
-//   origin: 'https://verymarine.domain.nomoredomains.xyz',
-//   credentials: true,
-// }));
+app.use(cors({
+  origin: 'https://verymarine.domain.nomoredomains.xyz',
+  credentials: true,
+}));
 
 app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
@@ -44,24 +44,24 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 
 app.use(requestLogger);
 
-app.use(req, res, next) => {
-  const { origin } = req.headers;
-  const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
-  const requestHeaders = req.headers['access-control-request-headers'];
+// app.use(req, res, next) => {
+//   const { origin } = req.headers;
+//   const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
+//   const requestHeaders = req.headers['access-control-request-headers'];
 
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', 'https://verymarine.domain.nomoredomains.xyz');
-    res.header('Access-Control-Allow-Credentials', true);
-  }
+//   if (allowedCors.includes(origin)) {
+//     res.header('Access-Control-Allow-Origin', 'https://verymarine.domain.nomoredomains.xyz');
+//     res.header('Access-Control-Allow-Credentials', true);
+//   }
 
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
-  }
+//   if (method === 'OPTIONS') {
+//     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+//     res.header('Access-Control-Allow-Headers', requestHeaders);
+//     return res.end();
+//   }
 
-  next();
-};
+//   next();
+// };
 
 // const cors = (req, res, next) => {
 //   const { origin } = req.headers;
