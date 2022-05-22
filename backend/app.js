@@ -30,7 +30,6 @@ const { PORT = 3000 } = process.env;
 app.use(cors({
   origin: 'https://verymarine.domain.nomoredomains.xyz',
   credentials: true,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }));
 
 app.use(bodyParser.json()); // для собирания JSON-формата
