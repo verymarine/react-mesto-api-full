@@ -179,7 +179,8 @@ function App() {
         .checkToken(jwt)
         .then((res) => {
           if (res) {
-            setUserEmail(res.data.email);
+            // setUserEmail(res.data.email);
+            setUserEmail(res.data);
             setLoggedIn(true);
             history.push("/main");
           }
@@ -215,7 +216,7 @@ function App() {
             email: "",
             password: "",
           });
-          localStorage.setItem("jwt", res.token); // то мы должны локал сторедж записать джвт и рес джвт / запись токенов в локал сторедж
+          localStorage.setItem("jwt", res.jwt); // то мы должны локал сторедж записать джвт и рес джвт / запись токенов в локал сторедж
           handleLogin(); // вызывется колбэк который зpадан снаружи в случа успешной регистрации и после этого редирект
         } else {
           setToolTipStatus(false);

@@ -13,13 +13,9 @@ const NotFound = require('./errors/NotFound');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const allowedCors = [
-  'https://praktikum.tk',
-  'http://praktikum.tk',
   'https://verymarine.domain.nomoredomains.xyz',
-  'http://verymarine.domain.nomoredomains.xyz',
-  'https://api.verymarine.domain.nomoreparties.sbs',
-  'http://api.verymarine.domain.nomoreparties.sbs',
-  'localhost:3000',
+  'http://localhost:3001',
+  'http://localhost:3000',
 ];
 
 // вызов нашего модуля
@@ -27,11 +23,10 @@ const app = express();
 // переменная окружения
 const { PORT = 3000 } = process.env;
 
-// const { PORT = 3000 } = process.env;
-// app.use(cors({
-//   origin: 'https://verymarine.domain.nomoredomains.xyz',
-//   credentials: true,
-// }));
+app.use(cors({
+  origin: allowedCors,
+  credentials: true,
+}));
 
 app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
@@ -44,43 +39,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 });
 
 app.use(requestLogger);
-
-app.use((req, res, next) => {
-  const { origin } = req.headers;
-  const { method } = req;
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-  const requestHeaders = req.headers['access-control-request-headers'];
-
-  if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', 'https://verymarine.domain.nomoredomains.xyz');
-    res.header('Access-Control-Allow-Credentials', true);
-  }
-
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
-  }
-
-  return next();
-});
-
-// const cors = (req, res, next) => {
-//   const { origin } = req.headers;
-//   const { method } = req;
-//   const requestHeaders = req.headers['access-control-request-headers'];
-//   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-//   res.header('Access-Control-Allow-Origin', origin);
-//   res.header('Access-Control-Allow-Credentials', true);
-//   if (method === 'OPTIONS') {
-//     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-//     res.header('Access-Control-Allow-Headers', requestHeaders);
-//     return res.end();
-//   }
-//   return next();
-// };
-
-// app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'public'))); // теперь клиент имеет доступ только к публичным файлам
 
@@ -115,7 +73,6 @@ app.use('/cards', require('./routes/cards'));
 
 app.use('*', auth, (req, res, next) => {
   next(new NotFound('Страницы не существует'));
-  // res.status(403).send({ message: 'Страницы не существует' });
 });
 
 app.use(errorLogger);

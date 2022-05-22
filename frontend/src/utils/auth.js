@@ -1,5 +1,8 @@
 //
 export const BASE_URL = 'https://api.verymarine.domain.nomoreparties.sbs';
+// export const BASE_URL = 'http://localhost:3000';
+
+
 
 //
 export const register = (email, password) => {

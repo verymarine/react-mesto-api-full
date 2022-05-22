@@ -7,6 +7,7 @@ const Unauthorized = require('../errors/Unauthorized');
 const Conflict = require('../errors/Conflict');
 
 const MONGO_DUBLICATE_ERROR_CODE = 11000;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getUsers = async (req, res, next) => {
   try {
@@ -70,7 +71,7 @@ module.exports.login = async (req, res, next) => {
           console.log(matched);
         }
 
-        const token = jwt.sign({ _id: user._id });
+        const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
 
         res.cookie('token', token, {
           httpOnly: true,
