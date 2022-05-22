@@ -209,13 +209,13 @@ function App() {
     auth
       .authorize(email, password)
       .then((res) => {
-        if (res) { // res.token
+        if (res) { //
           setValues({
             //обновить стейт при успешной запросе поля формы очистятся и
             email: "",
             password: "",
           });
-          localStorage.setItem("jwt", res.token); // то мы должны локал сторедж записать джвт и рес джвт / запись токенов в локал сторедж
+          // localStorage.setItem("jwt", res.token); // то мы должны локал сторедж записать джвт и рес джвт / запись токенов в локал сторедж
           handleLogin(); // вызывется колбэк который зpадан снаружи в случа успешной регистрации и после этого редирект
         } else {
           setToolTipStatus(false);
