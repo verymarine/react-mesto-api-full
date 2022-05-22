@@ -57,14 +57,17 @@ module.exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email }).select('+password');
+    console.log(user);
 
     if (!email || !password) {
       next(new BadRequest('Неправильные почта или пароль'));
+      console.log(email, password);
     }
     bcrypt.compare(password, user.password)
       .then((matched) => {
         if (!matched) {
           next(new BadRequest('Неправильные почта или пароль'));
+          console.log(matched);
         }
 
         const token = jwt.sign({ _id: user._id });
