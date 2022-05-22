@@ -91,7 +91,7 @@ class Api {
 const api = new Api({
   url: `https://api.verymarine.domain.nomoreparties.sbs`,
   headers: {
-    authorization: localStorage.getItem("jwt"), //  here were just localStorage.jwt
+    authorization: localStorage.jwt, //  here were just localStorage.getItem("jwt")
     "Content-Type": `application/json`,
   },
 });

@@ -216,6 +216,8 @@ function App() {
             email: "",
             password: "",
           });
+          // if (res.cookies.get("jwt", res.token)) {}
+
           localStorage.setItem("jwt", res.token); // то мы должны локал сторедж записать джвт и рес джвт / запись токенов в локал сторедж
           handleLogin(); // вызывется колбэк который зpадан снаружи в случа успешной регистрации и после этого редирект
         } else {
