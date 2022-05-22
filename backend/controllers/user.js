@@ -73,10 +73,10 @@ module.exports.login = async (req, res, next) => {
 
         const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
 
-        // res.cookie('token', token, {
-        //   httpOnly: true,
-        //   sameSite: true,
-        // });
+        res.cookie('token', token, {
+          httpOnly: true,
+          sameSite: true,
+        });
 
         res.status(200).send({ jwt: token });// тут добавила jwt // {token}
       });
