@@ -16,6 +16,8 @@ const allowedCors = [
   'http://praktikum.tk',
   'https://verymarine.domain.nomoredomains.xyz',
   'http://verymarine.domain.nomoredomains.xyz',
+  'https://api.verymarine.domain.nomoreparties.sbs',
+  'http://api.verymarine.domain.nomoreparties.sbs',
   'localhost:3000',
 ];
 
