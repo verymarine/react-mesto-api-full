@@ -192,7 +192,8 @@ function App() {
     auth
       .register(email, password)
       .then((res) => {
-        if (res.data._id) {
+        // if (res.data._id) {
+          if (res) {
           setToolTipStatus(true);
           setToolTip(true); // по дефолту значение тру
           history.push("/signin"); // если проверка пароля прошла успешно то мы редеректим на страницу авторизации
