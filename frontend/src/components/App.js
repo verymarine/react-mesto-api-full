@@ -179,8 +179,8 @@ function App() {
         .checkToken(jwt)
         .then((res) => {
           if (res) {
-            setUserEmail(res.data.email);
-            console.log(res.data.email);
+            // setUserEmail(res.data.email);
+            setUserEmail(res.data);
             setLoggedIn(true);
             history.push("/main");
           }
