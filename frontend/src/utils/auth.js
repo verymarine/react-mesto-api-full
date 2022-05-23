@@ -53,7 +53,7 @@ export const checkToken = (jwt) => {
       "Accept": "application/json",
       "Content-Type": "application/json",
       authorization : jwt,
-      // "Authorization" : `Bearer ${token}` 
+      // "Authorization" : `Bearer ${jwt}` 
     }
   })
   .then(res => res.json())
