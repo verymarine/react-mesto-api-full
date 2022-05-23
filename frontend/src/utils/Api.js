@@ -26,6 +26,8 @@ class Api {
   patchUserInfo(data) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
+
+      credentials: 'include',
       headers: this._headers,
 
       body: JSON.stringify({
@@ -38,6 +40,8 @@ class Api {
   addCard(data) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
+
+      credentials: 'include',
       headers: this._headers,
 
       body: JSON.stringify({
@@ -50,6 +54,8 @@ class Api {
   deleteCard(dataId) {
     return fetch(`${this._url}/cards/${dataId}`, {
       method: "DELETE",
+
+      credentials: 'include',
       headers: this._headers,
     }).then(response);
   }
@@ -57,6 +63,8 @@ class Api {
   putLike(dataId) {
     return fetch(`${this._url}/cards/${dataId}/likes`, {
       method: "PUT",
+
+      credentials: 'include',
       headers: this._headers,
     }).then(response);
   }
@@ -64,6 +72,8 @@ class Api {
   deleteLike(dataId) {
     return fetch(`${this._url}/cards/${dataId}/likes`, {
       method: "DELETE",
+
+      credentials: 'include',
       headers: this._headers,
     }).then(response);
   }
@@ -71,6 +81,8 @@ class Api {
   changeLikeCardStatus(dataId, isLiked) {
     return fetch(`${this._url}/cards/${dataId}/likes`, {
       method: `${isLiked ? "PUT" : "DELETE"}`,
+
+      credentials: 'include',
       headers: this._headers,
     }).then(response);
   }
@@ -78,6 +90,8 @@ class Api {
   patchAvatar(data) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
+
+      credentials: 'include',
       headers: this._headers,
 
       body: JSON.stringify({
@@ -119,10 +133,11 @@ class Api {
 }
 
 const api = new Api({
-  url: 'https://api.verymarine.domain.nomoreparties.sbs',
-  // url: 'http://localhost:3000',
+  // url: 'https://api.verymarine.domain.nomoreparties.sbs',
+  url: 'http://localhost:3000',
   headers: {
-    // authorization: localStorage.jwt,
+    authorization: localStorage.jwt,
+    // authorization: localStorage.getItem("jwt"),
     "Content-Type": `application/json`,
   },
 });

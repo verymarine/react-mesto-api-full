@@ -21,6 +21,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import * as auth from "../utils/auth";
 import InfoTooltip from "./InfoTooltip";
 
+
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
 
