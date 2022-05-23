@@ -1,10 +1,12 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const jsonwebtoken = require('jsonwebtoken');
 const User = require('../models/user');
 const NotFound = require('../errors/NotFound');
 const BadRequest = require('../errors/BadRequest');
 const Unauthorized = require('../errors/Unauthorized');
 const Conflict = require('../errors/Conflict');
+
 
 const MONGO_DUBLICATE_ERROR_CODE = 11000;
 const { NODE_ENV, JWT_SECRET } = process.env;
@@ -71,7 +73,8 @@ module.exports.login = async (req, res, next) => {
           console.log(matched);
         }
 
-        const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+        // const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+        const token = jsonwebtoken.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
 
         // localStorage.setItem("jwt", res.jwt);
 
@@ -82,7 +85,7 @@ module.exports.login = async (req, res, next) => {
           sameSite: 'None',
         });
 
-        res.status(200).send({ jwt: token });// тут добавила jwt // {token}
+        res.status(200).send({ token });// тут добавила jwt // {token}
       });
   } catch (err) {
     next(new Unauthorized('Пользователь не найден'));
