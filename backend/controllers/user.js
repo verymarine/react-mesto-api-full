@@ -75,10 +75,10 @@ module.exports.login = async (req, res, next) => {
 
         // localStorage.setItem("jwt", res.jwt);
 
-        // res.cookie('token', token, {
-        //   httpOnly: true,
-        //   sameSite: true,
-        // });
+        res.cookie('token', token, {
+          httpOnly: true,
+          sameSite: true,
+        });
 
         res.status(200).send({ jwt: token });// тут добавила jwt // {token}
       });
