@@ -137,7 +137,7 @@ const api = new Api({
   // url: 'http://localhost:3000',
   headers: {
     // authorization: localStorage.jwt,
-    authorization: "Bearer" + localStorage.getItem("jwt"),
+    // authorization: localStorage.getItem("jwt"),
     "Content-Type": `application/json`,
   },
 });
