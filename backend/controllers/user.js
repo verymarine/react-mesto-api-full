@@ -75,7 +75,7 @@ module.exports.login = async (req, res, next) => {
 
         // localStorage.setItem("jwt", res.jwt);
 
-        res.cookie('token', token, {
+        res.cookie('jwt', token, {
           maxAge: 3600000,
           httpOnly: true,
           secure: true,
