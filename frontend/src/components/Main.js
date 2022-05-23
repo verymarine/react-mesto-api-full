@@ -15,6 +15,7 @@ function Main(props) {
         linkHeader="signin"
         exit={props.exit}
         status={props.status}
+        // userEmail={props.userEmail}
         userEmail={props.userEmail}
       />
       <main className="main">
