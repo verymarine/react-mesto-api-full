@@ -21,12 +21,11 @@ class Api {
     }).then(response);
   }
 
-  getCards(jwt) {
+  getCards() {
     return fetch(`${this._url}/cards`, {
 
     credentials: 'include',
       headers: this._headers,
-      // authorization : jwt,
     }).then(response);
   }
 

@@ -172,17 +172,16 @@ function App() {
 
   const handleTokenCheck = () => {
     // достаем инфо из локалсторедж
-    // const jwt = localStorage.getItem("jwt");
-    const jwt = { withcredentials: true };
-    // console.log("jwt", jwt);
+    const jwt = localStorage.getItem("jwt");
+    
     if (jwt) {
       // проверяем токен пользователя
       auth
-        .checkToken()
+        .checkToken(jwt)
         .then((res) => {
           if (res) {
-            // setUserEmail(res.data.email);
-            setUserEmail(res.data);
+            setUserEmail(res.data.email);
+            // setUserEmail(res.data); ---- раньше работало, возможно вернуть 
             setLoggedIn(true);
             history.push("/main");
           }
