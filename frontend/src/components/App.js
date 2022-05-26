@@ -172,14 +172,13 @@ function App() {
 
   const handleTokenCheck = () => {
     // достаем инфо из локалсторедж
-    const jwt = localStorage.getItem("jwt");
+    // const jwt = localStorage.getItem("jwt");
+    const jwt = { withcredentials: true };
     // console.log("jwt", jwt);
     if (jwt) {
       // проверяем токен пользователя
       auth
-        .checkToken(jwt, 
-          { withCredentials: true }
-          )
+        .checkToken()
         .then((res) => {
           if (res) {
             // setUserEmail(res.data.email);
