@@ -45,13 +45,14 @@ export const authorize = (email, password) => {
 }
 
 //
-export const checkToken = (token) => {
+export const checkToken = (jwt) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
-    credentials: 'include',
+    // credentials: 'include',
     headers: {
       "Accept": "application/json",
       "Content-Type": "application/json",
+      cookie: jwt,
       // authorization : ,
       // "Authorization" : `Bearer ${jwt}` 
     }
