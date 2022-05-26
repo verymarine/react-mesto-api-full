@@ -177,7 +177,9 @@ function App() {
     if (jwt) {
       // проверяем токен пользователя
       auth
-        .checkToken(jwt, { withCredentials: true })
+        .checkToken(jwt, )
+          // { withCredentials: true }
+          // )
         .then((res) => {
           if (res) {
             // setUserEmail(res.data.email);
