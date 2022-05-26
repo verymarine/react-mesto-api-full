@@ -17,7 +17,7 @@ class Api {
     credentials: 'include',
       headers: this._headers,
       // authorization : jwt,
-      cookie: jwt,
+      // cookie: jwt,
     }).then(response);
   }
 
@@ -26,7 +26,7 @@ class Api {
 
     credentials: 'include',
       headers: this._headers,
-      authorization : jwt,
+      // authorization : jwt,
     }).then(response);
   }
 

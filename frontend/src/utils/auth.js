@@ -52,7 +52,7 @@ export const checkToken = (jwt) => {
     headers: {
       "Accept": "application/json",
       "Content-Type": "application/json",
-      cookie: jwt,
+      // cookie: jwt,
       // authorization : ,
       // "Authorization" : `Bearer ${jwt}` 
     }
