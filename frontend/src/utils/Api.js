@@ -16,7 +16,8 @@ class Api {
 
     credentials: 'include',
       headers: this._headers,
-      authorization : jwt,
+      // authorization : jwt,
+      cookie: jwt,
     }).then(response);
   }
 
