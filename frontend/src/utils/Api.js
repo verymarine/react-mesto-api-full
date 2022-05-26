@@ -11,15 +11,21 @@ class Api {
     this._headers = headers;
   }
 
-  getUserInfo() {
+  getUserInfo(jwt) {
     return fetch(`${this._url}/users/me`, {
+
+    credentials: 'include',
       headers: this._headers,
+      authorization : jwt,
     }).then(response);
   }
 
-  getCards() {
+  getCards(jwt) {
     return fetch(`${this._url}/cards`, {
+
+    credentials: 'include',
       headers: this._headers,
+      authorization : jwt,
     }).then(response);
   }
 

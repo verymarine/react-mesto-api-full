@@ -132,7 +132,7 @@ function App() {
   React.useEffect(() => {
     if (loggedIn) {
       Promise.all([api.getUserInfo(), api.getCards()])
-        .then(([userData, cardsList]) => {
+        .then(([userData, cardsList,]) => {
           setCurrentUser(userData);
           setCards(cardsList);
         })
@@ -177,7 +177,7 @@ function App() {
     if (jwt) {
       // проверяем токен пользователя
       auth
-        .checkToken(jwt)
+        .checkToken(jwt, { withCredentials: true })
         .then((res) => {
           if (res) {
             // setUserEmail(res.data.email);
