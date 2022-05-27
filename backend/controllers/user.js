@@ -77,8 +77,9 @@ module.exports.login = async (req, res, next) => {
 
         res.cookie('token', token, {
           maxAge: 3600000,
-          httpOnly: false,
+          httpOnly: true,
           secure: true,
+          domain: 'https://verymarine.domain.nomoredomains.xyz',
           sameSite: 'None',
         });
 
