@@ -143,6 +143,8 @@ const api = new Api({
   // url: 'http://localhost:3000',
   headers: {
     // authorization: localStorage.jwt,
+    // "Cookie": ("token"),
+    // "authorization": localStorage.jwt,
     "Content-Type": `application/json`,
   },
 });

@@ -173,6 +173,7 @@ function App() {
   const handleTokenCheck = () => {
     // достаем инфо из локалсторедж
     const jwt = localStorage.getItem("jwt");
+    // const jwt = {withCredentials: true};
     
     if (jwt) {
       // проверяем токен пользователя
