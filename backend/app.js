@@ -17,8 +17,8 @@ const allowedCors = [
   'http://verymarine.domain.nomoredomains.xyz',
   'https://api.verymarine.domain.nomoreparties.sbs',
   'http://api.verymarine.domain.nomoreparties.sbs',
-  'https://localhost:3000',
-  'http://localhost:3000',
+  'https://localhost:3001',
+  'http://localhost:3001',
 ];
 
 // вызов нашего модуля
@@ -28,6 +28,7 @@ const { PORT = 3000 } = process.env;
 
 // const { PORT = 3000 } = process.env;
 app.use(cors({
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   origin: allowedCors,
   credentials: true,
 }));

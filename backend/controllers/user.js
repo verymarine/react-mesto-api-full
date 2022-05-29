@@ -79,7 +79,7 @@ module.exports.login = async (req, res, next) => {
           maxAge: 3600000,
           httpOnly: true,
           secure: true,
-          domain: 'https://verymarine.domain.nomoredomains.xyz',
+          // domain: 'https://verymarine.domain.nomoredomains.xyz', // huita
           sameSite: 'None',
         });
 
