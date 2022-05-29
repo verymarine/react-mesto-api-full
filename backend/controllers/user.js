@@ -96,15 +96,15 @@ module.exports.createUser = async (req, res, next) => {
       name, about, avatar, email, password,
     } = req.body;
     const hash = await bcrypt.hash(password, 10);
-    await User.create({
+    const user = await User.create({
       name, about, avatar, email, password: hash,
     });
+    const savedUser = await user.save();
+    const { password: removedPassword, ...result } = savedUser.toObject();
     if (!email || !password) {
       next(new BadRequest('Неверный email или пароль'));
     } else {
-      res.status(201).send({
-        name, about, avatar, email,
-      });
+      res.status(201).send(result);
     }
   } catch (err) {
     if (err.code === MONGO_DUBLICATE_ERROR_CODE) {
