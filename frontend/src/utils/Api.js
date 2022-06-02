@@ -1,6 +1,3 @@
-// import { data } from "autoprefixer";
-// import PopupDeleteCard from "./PopupDeleteCard";
-
 function response(res) {
   return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`);
 }

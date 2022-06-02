@@ -147,7 +147,7 @@ function App() {
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
-      .changeLikeCardStatus(card._id, !isLiked) // HERE WAS ! before !isLiked
+      .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
           state.map((c) => (c._id === card._id ? newCard : c))
@@ -181,9 +181,7 @@ function App() {
         .checkToken(jwt)
         .then((res) => {
           if (res) {
-            // setUserEmail(res.data.email);
             setUserEmail(res.email);
-            console.log(setUserEmail);
             setLoggedIn(true);
             history.push("/main");
           }
@@ -213,7 +211,7 @@ function App() {
     auth
       .authorize(email, password)
       .then((res) => {
-        if (res) { //
+        if (res) {
           setValues({
             //обновить стейт при успешной запросе поля формы очистятся и
             email: "",

@@ -15,8 +15,6 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const allowedCors = [
   'https://verymarine.domain.nomoredomains.xyz',
   'http://verymarine.domain.nomoredomains.xyz',
-  // 'https://api.verymarine.domain.nomoreparties.sbs',
-  // 'http://api.verymarine.domain.nomoreparties.sbs',
   'https://localhost:3001',
   'http://localhost:3001',
 ];
@@ -78,17 +76,11 @@ app.use('/cards', require('./routes/cards'));
 
 app.use('*', auth, (req, res, next) => {
   next(new NotFound('Страницы не существует'));
-  // res.status(403).send({ message: 'Страницы не существует' });
 });
 
 app.use(errorLogger);
 
 app.use(errors());
-
-// app.use((req, res, next) => {
-//   next(new NotFound('Страницы не существует'));
-//   // res.status(404).send({ message: 'Страницы не существует' });
-// });
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message } = err;

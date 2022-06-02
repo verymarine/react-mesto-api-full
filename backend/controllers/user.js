@@ -73,13 +73,10 @@ module.exports.login = async (req, res, next) => {
 
         const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
 
-        // localStorage.setItem("jwt", res.jwt);
-
         res.cookie('token', token, {
           maxAge: 3600000,
           httpOnly: true,
           secure: true,
-          // domain: 'https://verymarine.domain.nomoredomains.xyz', // huita
           sameSite: 'None',
         });
 
