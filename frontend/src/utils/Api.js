@@ -88,7 +88,7 @@ class Api {
     return fetch(`${this._url}/cards/${dataId}/likes`, {
       method: `${isLiked ? "PUT" : "DELETE"}`,
 
-      credentials: 'include',
+      // credentials: 'include',
       headers: this._headers,
     }).then(response);
   }
