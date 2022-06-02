@@ -29,7 +29,7 @@ const Card = (props) => {
 
   // Создаём переменную, которую после зададим в `className` для кнопки лайка
   const cardLikeButtonClassName = ` ${
-    isLiked ? "content__like" : "content__liked" //
+    !isLiked ? "content__liked" : "content__like" //
   }`;
 
   return (
