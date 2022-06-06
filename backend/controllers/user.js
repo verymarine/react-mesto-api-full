@@ -67,8 +67,7 @@ module.exports.login = async (req, res, next) => {
     bcrypt.compare(password, user.password)
       .then((matched) => {
         if (!matched) {
-          next(new BadRequest('Неправильные почта или пароль'));
-          console.log(matched);
+          next(new Unauthorized('Не удалось авторизоваться'));
         }
 
         const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');

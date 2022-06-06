@@ -4,5 +4,9 @@
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
 
-# ДОМЕН verymarine.domain.nomoredomains.xyz
-# ПУбЛИЧНЫЙ API 84.201.154.129
+# ДОМЕН
+ verymarine.domain.nomoredomains.xyz
+# ДОМЕН СЕРВЕРА
+ api.verymarine.domain.nomoreparties.sbs
+# ПУбЛИЧНЫЙ API
+ 84.201.154.129
