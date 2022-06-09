@@ -194,15 +194,19 @@ function App() {
     auth
       .register(email, password)
       .then((res) => {
-        if (res) {
+        if (res.email) {
+          setToolTip(true);
           setToolTipStatus(true);
-          setToolTip(true); // по дефолту значение тру
           history.push("/signin"); // если проверка пароля прошла успешно то мы редеректим на страницу авторизации
+        } else {
+
+          setToolTip(true);
+          setToolTipStatus(false);
         }
       })
       .catch((err) => {
-        setToolTipStatus(false);
-        setToolTip(true);
+        // setToolTip(true);
+        // setToolTipStatus(false);
         console.log("Error at register", err);
       });
   }

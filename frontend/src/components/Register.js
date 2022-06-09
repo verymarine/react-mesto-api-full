@@ -25,6 +25,29 @@ function Register(props) {
     if (values.email || values.password) {
       props.submitRegister(values.email, values.password);
       // auth
+      //   .register(email, password)
+      //   .then((res) => {
+      //     if (res.email) {
+      //       setToolTip(true);
+      //       setToolTipStatus(true);
+      //       history.push("/signin"); // если проверка пароля прошла успешно то мы редеректим на страницу авторизации
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     console.log('HERE');
+      //     setToolTip(true);
+      //     setToolTipStatus(false);
+      //     console.log("Error at register", err);
+      //   });
+
+
+
+
+
+
+
+
+      // auth
       //   .register(values.email, values.password)
       //   .then((res) => {
       //     if (res.data._id) {
