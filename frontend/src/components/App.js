@@ -215,7 +215,8 @@ function App() {
     auth
       .authorize(email, password)
       .then((res) => {
-        if (res) {
+        if (res.jwt) {
+          console.log(res);
           setValues({
             //обновить стейт при успешной запросе поля формы очистятся и
             email: "",

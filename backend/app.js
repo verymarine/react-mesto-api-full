@@ -17,7 +17,7 @@ const allowedCors = [
   'http://verymarine.domain.nomoredomains.xyz',
   'https://localhost:3001',
   'http://localhost:3001',
-  'http://localhost:3000',
+  // 'http://localhost:3000',
 ];
 
 // вызов нашего модуля
