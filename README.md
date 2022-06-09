@@ -8,5 +8,5 @@
  verymarine.domain.nomoredomains.xyz
 # ДОМЕН СЕРВЕРА
  api.verymarine.domain.nomoreparties.sbs
-# ПУбЛИЧНЫЙ API
+# ПУБЛИЧНЫЙ API
  84.201.154.129
